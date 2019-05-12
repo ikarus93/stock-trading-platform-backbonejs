@@ -1,0 +1,41 @@
+@import url("https://fonts.googleapis.com/css?family=Armata");
+
+@import "reset";
+@import "config";
+
+body {
+  background-color: $main-bg;
+  color: $main-txt;
+  font-family: $main-font;
+}
+
+#nav-list {
+  display: inline-grid;
+  grid-template-columns: 1fr 1fr;
+  grid-column-gap: 1rem;
+
+  li {
+    font-size: 2rem;
+    transition: color 1s;
+  }
+
+  li:hover {
+    color: #fff;
+  }
+}
+
+.auth-modal-wrapper {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  border: 1px solid white;
+  width: 30%;
+
+  &--active {
+    color: white;
+  }
+
+  &__modal {
+    background-color: white;
+    width: 70%;
+  }
+}

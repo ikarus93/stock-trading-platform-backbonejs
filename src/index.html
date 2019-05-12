@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Ok</title>
+  </head>
+  <body>
+    <div id="output"></div>
+
+    <script type="text/template" id="main-temp">
+      <nav id="nav-view"></nav>
+      <section id="content-view"></section>
+    </script>
+
+    <script type="text/template" id="nav-temp">
+      <ul id="nav-list">
+
+      </ul>
+    </script>
+
+    <script type="text/template" id="auth-modal-wrapper-temp">
+      <nav>
+        <ul class="auth-modal-wrapper">
+          <li><a href="#" class="loadLogin">Login</a></li>
+          <li><a href="#" class="loadRegister">Register</a></li>
+        </ul>
+      </nav>
+      <div id="login-form"></div>
+      <div id="register-form"></div>
+    </script>
+
+    <script type="text/template" id="auth-modal-temp">
+      <div class="auth-modal-wrapper__modal">
+        <% if (type === "register") { %>
+          <input type="text" class="auth__modal__name" />
+      <% } %>
+          <input type="email" class="auth__modal__email" />
+          <input type="pw" class="auth__modal__pw" />
+          <button type="btn" class="auth__modal__btn"><%= type %></button>
+          <div class="auth__modal__error"></div>
+        </div>
+    </script>
+
+    <script type="text/template" id="user-area-temp">
+      <h3>Hi <%= name %></h3>
+      <div id="stock-table-region"></div>
+      <div id="trade-modal-region"></div>
+      <button class="tradeBtn">Trade Stocks</button>
+    </script>
+
+    <script type="text/template" id="stock-table-temp">
+      <h3>Your stocks</h3>
+      <table class="stock-table">
+        <tr>
+        <th>Name</th>
+        <th>Amount of shares</th>
+        </tr>
+      </table>
+    </script>
+
+    <script type="text/template" id="trade-modal-wrapper-temp">
+      <nav>
+        <ul>
+          <li><a href="#" class="loadBuy">Buy</a></li>
+          <li><a href="#" class="loadSell">Sell</a></li>
+        </ul>
+      </nav>
+      <div id="buy-form"></div>
+      <div id="sell-form"></div>
+    </script>
+
+    <script type="text/template" id="trade-modal-temp">
+      <input type="text" class="trade__modal__stock" />
+      <input type="number" class="trade__modal__amount" />
+      <button type="btn" class="trade__modal__btn"><%= type %></button>
+      <div class="trade__modal__error"></div>
+    </script>
+  </body>
+</html>
