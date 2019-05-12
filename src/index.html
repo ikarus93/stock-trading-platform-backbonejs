@@ -23,8 +23,8 @@
     <script type="text/template" id="auth-modal-wrapper-temp">
       <nav>
         <ul class="auth-modal-wrapper">
-          <li><a href="#" class="loadLogin">Login</a></li>
-          <li><a href="#" class="loadRegister">Register</a></li>
+          <li class="active-auth-link loadLogin">Login</li>
+          <li class="loadRegister">Register</li>
         </ul>
       </nav>
       <div id="login-form"></div>
@@ -34,10 +34,10 @@
     <script type="text/template" id="auth-modal-temp">
       <div class="auth-modal-wrapper__modal">
         <% if (type === "register") { %>
-          <input type="text" class="auth__modal__name" />
+          <label for="name">Name</label><input type="text" name="name" class="auth__modal__name" />
       <% } %>
-          <input type="email" class="auth__modal__email" />
-          <input type="pw" class="auth__modal__pw" />
+      <label for="email">Email</label><input type="email" name="email" class="auth__modal__email" />
+      <label for="pw">Password</label><input type="password" name="pw" class="auth__modal__pw" />
           <button type="btn" class="auth__modal__btn"><%= type %></button>
           <div class="auth__modal__error"></div>
         </div>

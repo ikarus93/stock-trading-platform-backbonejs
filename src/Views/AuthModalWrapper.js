@@ -19,6 +19,8 @@ export default View.extend({
 
     initialize() {
         _.bindAll(this, "showLoginModal", "showRegisterModal");
+        this.showChildView("loginForm", new AuthModal({ type: "login", model: new LoginRequest({}) }))
+
 
     },
 
@@ -27,12 +29,21 @@ export default View.extend({
         "click .loadRegister": "showRegisterModal"
     },
 
+    toggleActiveClass(target) {
+        if (!target.classList.contains("active-auth-link")) {
+            document.querySelector(".active-auth-link").classList.remove("active-auth-link");
+            target.classList.add("active-auth-link");
+        }
 
-    showLoginModal() {
+    },
+
+    showLoginModal(e) {
+        this.toggleActiveClass(e.target)
         this.getChildView("registerForm") && this.getChildView("registerForm").destroy();
         this.showChildView("loginForm", new AuthModal({ type: "login", model: new LoginRequest({}) }))
     },
-    showRegisterModal() {
+    showRegisterModal(e) {
+        this.toggleActiveClass(e.target);
         this.getChildView("loginForm") && this.getChildView("loginForm").destroy();
         this.showChildView("registerForm", new AuthModal({ type: "register", model: new RegisterRequest({}) }))
     },
