@@ -21,12 +21,10 @@
     </script>
 
     <script type="text/template" id="auth-modal-wrapper-temp">
-      <nav>
         <ul class="auth-modal-wrapper">
           <li class="active-auth-link loadLogin">Login</li>
           <li class="loadRegister">Register</li>
         </ul>
-      </nav>
       <div id="login-form"></div>
       <div id="register-form"></div>
     </script>
@@ -61,21 +59,26 @@
     </script>
 
     <script type="text/template" id="trade-modal-wrapper-temp">
-      <nav>
-        <ul>
-          <li><a href="#" class="loadBuy">Buy</a></li>
-          <li><a href="#" class="loadSell">Sell</a></li>
+        <div class="trade-modal-container trade-modal-container--active">
+        <ul class="trade-modal-wrapper">
+          <li class="loadBuy active-trade-link">Buy</li>
+          <li class="loadSell">Trade</li>
+          <div id="buy-form"></div>
+          <div id="sell-form"></div>
         </ul>
-      </nav>
-      <div id="buy-form"></div>
-      <div id="sell-form"></div>
+      </div>
     </script>
 
     <script type="text/template" id="trade-modal-temp">
-      <input type="text" class="trade__modal__stock" />
-      <input type="number" class="trade__modal__amount" />
+      <div class="trade-modal-wrapper__modal">
+        <h3><%= type %></h3>
+      <label for="name">Stockname</label>
+      <input type="text" name="name" class="trade__modal__stock" />
+      <label for="amount">Amount</label>
+      <input type="number" name="amount" class="trade__modal__amount" />
       <button type="btn" class="trade__modal__btn"><%= type %></button>
       <div class="trade__modal__error"></div>
+      </div>
     </script>
   </body>
 </html>

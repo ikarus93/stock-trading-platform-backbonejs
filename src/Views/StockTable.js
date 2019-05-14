@@ -17,10 +17,8 @@ export default CollectionView.extend({
         _.bindAll(this, "updateCollection");
         //If user did a trade this event will occur
         mainChannel.on("update:table", this.updateCollection);
+        this.collection = new StockCollection(this.collection);
 
-        //Request stocktable from Application instance
-        let stockTable = mainChannel.request("stocktable");
-        this.collection = new StockCollection(stockTable);
     },
     childView: StockItem,
     childViewContainer: ".stock-table",

@@ -34,7 +34,6 @@ const MyApp = Application.extend({
         this.loadStockNames();
 
         authChannel.on("update:user", this.updateUser); //listens to login/register validation
-        mainChannel.reply("stocktable", () => this.stocksOwned || []) //sends out table of user stocks if user owns any and is authenticated
     },
 
     onStart() {
@@ -58,10 +57,9 @@ const MyApp = Application.extend({
 
     updateUser(user) {
         //updates user global and sets user id in local storage, also sets global for stocks owned currently by user
-        this.stocksOwned = user.stocksOwned;
         this.user = new User(user);
         localStorage.setItem("id", user.id)
-
+        console.log("USER", user)
         //as user is authenticated, remove login/register from navbar and instead add link to logout button
         this.navCollection.pop();
         this.navCollection.add(new NavItem({ href: "/#logout", name: "Logout" }))

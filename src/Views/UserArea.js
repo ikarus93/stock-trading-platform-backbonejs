@@ -18,11 +18,11 @@ export default View.extend({
     },
 
     initialize(options) {
-        this.stockCollection = options.stocksOwned;
+        this.stockCollection = this.model.get("stocksOwned");
     },
 
     onRender() {
-        this.showChildView("stockTable", new StockTable({ collection: this.stockCollection }))
+        this.showChildView("stockTable", new StockTable({ collection: this.model.get("stocksOwned") }))
     },
 
     loadTradeModalWrapper() {

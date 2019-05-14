@@ -1,3 +1,23 @@
 $main-bg: #1e1f26;
 $main-txt: #db4c1c;
 $main-font: "Armata", sans-serif;
+
+@mixin main-inputs() {
+  background-color: $main-bg;
+  border: 1px solid $main-txt;
+  border-radius: 5%;
+  padding: 0.5rem;
+  color: $main-txt;
+  margin-left: 0.5rem;
+}
+
+@mixin main-form-buttons() {
+  background-color: $main-bg;
+  border: 1px solid $main-txt;
+  border-radius: 7%;
+  padding: 0.3rem;
+  color: $main-txt;
+  margin-left: 1rem;
+  font-size: 1.1rem;
+  transition: all 0.5s;
+}
